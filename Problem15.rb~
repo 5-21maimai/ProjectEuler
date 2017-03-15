@@ -13,4 +13,4 @@ def root(a,b)
 end
 
 
-print(root(20,20))
+puts root(20,20)
