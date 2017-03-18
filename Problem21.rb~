@@ -1,0 +1,28 @@
+def sumYakusu(num)
+    sum = 0
+    j = num / 2
+    for i in 1..j do
+    	if num % i == 0 then
+	   sum = sum + i
+	end
+    end
+    return sum
+end
+
+def sumYuai(count)
+    sumYuai = 0
+    for a in 1..count-1 do
+    	b = sumYakusu(a)
+	if sumYakusu(b) == a then
+	   if a != b then
+	      print(a)
+	      print("\n")
+	      sumYuai = sumYuai + a
+	   end
+	end
+    end
+    return sumYuai
+end
+
+
+print(sumYuai(10000))
