@@ -3,6 +3,17 @@
 		 18 => "eighteen",19 => "nineteen", 20 => "twenty", 30 => "thirty", 40 => "forty", 50 => "fifty", 60 => "sixty", 70 => "seventy",
 		 80 => "eighty", 90 => "ninety" }
 
+
+def countWord(max)
+    count = 0
+    for num in 1..max do
+    	word = createWord(num)
+	count = count + word.length
+    end
+    return count
+end
+
+
 def createWord(num)
     if num == 1000
        return "onethousand"
@@ -15,13 +26,25 @@ def createWord(num)
     end
 
     hundredsRemainder = num % 100
+    if hundredsRemainder == 0 then
+       return word
+    end
+
     if hundredsRemainder < 20 then
-       word = word + "and" + @englishList[hundredsRemainder]
+       if hundreds == 0 then
+       	  word = word + @englishList[hundredsRemainder]
+       else
+          word = word + "and" + @englishList[hundredsRemainder] 
+       end
        return word
     end
        
     tens = hundredsRemainder / 10
-    word = word + "and" + @englishList[tens * 10]
+    if hundreds == 0 then
+        word = word + @englishList[tens * 10]
+    else
+        word = word + "and" + @englishList[tens * 10]
+    end
 
     tensRemainder = hundredsRemainder % 10
     if tensRemainder != 0 then
@@ -32,5 +55,6 @@ def createWord(num)
 
 end
 
-print(createWord(730))
+
+print(countWord(1000))
        
