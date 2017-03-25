@@ -20,4 +20,30 @@ def createOverList(max)
     return overList
 end
 
-print(createOverList(30))
+def checkOverList(max)
+    numberList = Array.new(max+1)
+    overList = createOverList(max)
+    sum = 0
+    count = 0
+
+    for i in overList do
+    	for j in overList do
+	    if i <= j && i+j <= max then
+	        numberList[i+j] = 1
+	    end
+	end
+    end
+    
+    for number in numberList do
+    	if number == nil
+	   print(count)
+	   print("\n")
+	   sum = sum + count
+	end
+	count = count + 1
+    end
+    return sum
+end
+
+
+print(checkOverList(28123))
