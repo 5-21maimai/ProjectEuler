@@ -10,6 +10,7 @@ def getData(filename,mode)
         f.each_line do |data|
 	    data = data.gsub("\"","")
       	    dataList = data.split(",")
+	    dataList.sort!
         end
     end
     return dataList
