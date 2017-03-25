@@ -1,7 +1,7 @@
 def countScore
     dataList = getData("names.txt", "r")
     score = dataList.inject(0) do |count, m|
-        count = count + countLetter(m)
+	count = count + (dataList.index(m)+1) * countLetter(m)
 	count
     end
     
@@ -32,7 +32,5 @@ def countLetter(str)
     end
     return score
 end
-
-
 
 countScore
