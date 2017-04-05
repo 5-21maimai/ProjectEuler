@@ -8,9 +8,21 @@ def sumEachPlace(num)
     return sum
 end
 
+def main()
+    matchNumList = []
+    for num in 2..999999 do
+    	sum = sumEachPlace(num)
+	if num == sum then
+	    matchNumList << num
+	end
+    end
+    result = 0
+    print(matchNumList)
+    matchNumList.each do |i|
+        result = result + i
+    end
+    print(result)
+end
 
 
-
-
-
-print(sumEachPlace(123))
+main()
