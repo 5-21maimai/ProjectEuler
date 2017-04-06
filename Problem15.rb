@@ -1,16 +1,11 @@
-def root(a,b)
-    total = a + b
-    first = 1
-    second = 1
-   
-    for i in 1..b do
-       first = first * (total - (i-1))
-       second = second * i
+def main(a,b)
+    num = a + b
+    answer = 1
+    while num > a
+       answer = answer * (num / (num - a))
+       num = num - 1
     end
-    answer = first / second
-    
-    return answer
+    print(answer)
 end
 
-
-print(root(20,20))
+main(3,2)
