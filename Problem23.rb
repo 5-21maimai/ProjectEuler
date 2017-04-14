@@ -1,33 +1,37 @@
-def sumFactor(num)
-    sum = 0
-    for i in 1..num/2 do
+def createFactorList(num)
+    factorList = []
+    (1..num/2).each do |i|
     	if num % i == 0 then
-	   sum = sum + i
+	   factorList << i
 	end
     end
-    return sum
+    return factorList
+end
+
+def sumList(list)
+    return list.inject(0){ |sum, j| sum + j }
 end
 
 
-def createOverList(max)
-    overList = []
-    for n in 1..max
-    	sumFactor = sumFactor(n)
+def createAbundantNumberList(max)
+    abundantNumberList = []
+    (1..max).each do |n|
+    	sumFactor = sumList(createFactorList(n))
 	if n < sumFactor then
-	    overList << n
+	    abundantNumberList << n
 	end
     end
-    return overList
+    return abundantNumberList
 end
 
-def checkOverList(max)
+def checkAbundantNumberList(max)
     numberList = Array.new(max+1)
-    overList = createOverList(max)
+    abundantNumberList = createAbundantNumberList(max)
     sum = 0
     count = 0
 
-    for i in overList do
-    	for j in overList do
+    for i in abundantNumberList do
+    	for j in abundantNumberList do
 	    if i <= j && i+j <= max then
 	        numberList[i+j] = 1
 	    end
@@ -36,8 +40,6 @@ def checkOverList(max)
     
     for number in numberList do
     	if number == nil
-	   print(count)
-	   print("\n")
 	   sum = sum + count
 	end
 	count = count + 1
@@ -46,4 +48,4 @@ def checkOverList(max)
 end
 
 
-print(checkOverList(28123))
+print(checkAbundantNumberList(28123))
