@@ -2,7 +2,7 @@ def cycleCalc(num)
    rest = 1
    restList = []
 
-   while 0 < 1 do
+   while true do
        rest = (rest * 10) % num
        if rest == 0 || restList.include?(rest) then
        	   return restList.length
@@ -15,7 +15,9 @@ end
 def searchMax(upper)
     maxCount = 1
     answer = 0
-    for num in 1..upper do
+    (1..upper).each do |num|
+        next if num % 2 == 0 || num % 5 == 0
+
     	if maxCount < cycleCalc(num) then
 	   maxCount = cycleCalc(num)
 	   answer = num
