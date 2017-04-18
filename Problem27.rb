@@ -1,18 +1,14 @@
 def checkPrime(num)
-    for i in 2..num/2 do
-    	if num % i == 0 then
-	   return false
-	end
+    (2..num/2).each do |i|
+    	return false if num % i == 0
     end
     return true
 end
 
 def createPrimeList(max)
     primeList = []
-    for i in 2..max do
-    	if checkPrime(i) then
-	    primeList << i
-	end
+    (2..max).each do |i|
+    	primeList << i if checkPrime(i)
     end
     return primeList
 end
@@ -20,16 +16,14 @@ end
 
 def calc(n,a,b)
     result = n * n + a * n + b
-    if result > 0 && checkPrime(result) then
-	return true
-    end
+    return true if result > 0 && checkPrime(result)
     return false
 end
 
 
 def countPrime(a,b)
     n = 0
-    while 0 < 1 do
+    while true do
     	if calc(n,a,b)
 	    n = n + 1
 	else
@@ -45,7 +39,7 @@ def main()
     maxPrime = 0
     mulResult = 0    
 
-    for a in 0..999 do
+    (0..999).each do |a|
     	for b in bList do
     	    countPrime = countPrime(a,b)
 	    if countPrime > maxPrime
@@ -56,7 +50,7 @@ def main()
 	    minusA = 0 - a
 	    countPrime = countPrime(minusA,b)
 	    if countPrime > maxPrime
-               maxPrime	  = countPrime
+               maxPrime = countPrime
 	       mulResult = minusA * b
 	    end
 
