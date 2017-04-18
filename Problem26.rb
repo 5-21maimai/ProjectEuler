@@ -4,9 +4,7 @@ def cycleCalc(num)
 
    while true do
        rest = (rest * 10) % num
-       if rest == 0 || restList.include?(rest) then
-       	   return restList.length
-       end
+       return restList.length if rest == 0 || restList.include?(rest)
        restList << rest 
    end
 end
