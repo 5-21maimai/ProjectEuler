@@ -24,11 +24,10 @@ end
 def countPrime(a,b)
     n = 0
     while true do
-    	if calc(n,a,b)
-	    n = n + 1
-	else
+    	if calc(n,a,b) == false
 	    return n - 1
 	end
+	n = n + 1
     end
     return 0
 end
@@ -40,7 +39,7 @@ def main()
     mulResult = 0    
 
     (0..999).each do |a|
-    	for b in bList do
+    	bList.each do |b|
     	    countPrime = countPrime(a,b)
 	    if countPrime > maxPrime
 	       maxPrime = countPrime
