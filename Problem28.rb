@@ -10,13 +10,15 @@ end
 
 def main()
     result = 0
-    (1..1001).each do |i|
-    	if i == 1 then
-	    result = result + 1
-	elsif i % 2 != 0 then
-	    result = result + calcSide(i)
-	end
-    end
+    i = 1
+    while i < 1002 do
+    	 if i == 1 then
+             result = result + 1
+	 else
+	     result = result + calcSide(i)
+	 end
+	 i = i + 2
+    end 
     print(result)
 end
 
