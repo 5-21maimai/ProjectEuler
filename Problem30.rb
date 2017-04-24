@@ -1,6 +1,5 @@
 def sumEachPlace(num)
-    numStr = num.to_s
-    eachPlaceList = numStr.split("")
+    eachPlaceList = num.to_s.split("")
     sum = 0
     for place in eachPlaceList do
     	sum = sum + place.to_i ** 5
@@ -10,17 +9,13 @@ end
 
 def main()
     matchNumList = []
-    for num in 2..999999 do
+    2.upto(999999) do |num|
     	sum = sumEachPlace(num)
 	if num == sum then
 	    matchNumList << num
 	end
     end
-    result = 0
-    print(matchNumList)
-    matchNumList.each do |i|
-        result = result + i
-    end
+    matchNumList.inject(0){ |result, i| result + i }
     print(result)
 end
 
