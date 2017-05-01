@@ -1,15 +1,13 @@
-def countCoins(target, coins)
-    if coins.length == 0 then
-        return 1
+def countCoins(target, coins, lastCoin = 0)
+    return 1 if target == 0
+    total = 0
+
+    coins.each do |c|
+    	next if c < lastCoin
+	total += countCoins(coins, target - c, c) if (target >= c)
     end
-    sum = 0
-    coin = coins[0]
-    selectLimit = target / coin
-    0.upto(selectLimit) do |i|
-    	subCoins = coins[1..coins.length-1]
-        sum = sum + countCoins(target - coin * i , subCoins)
-    end
-    return sum
+    return total
+
 end
 
 def main()
