@@ -19,13 +19,19 @@ end
 
 
 def main()
+    numerator = 1
+    denominator = 1
     (10..98).each do |n|
         (n+1 .. 99).each do |d|
 	    if checkSameDigit(n,d)
 	     	print(n,d,"\n")
+		numerator = numerator * n
+		denominator = denominator * d
 	    end
 	end
     end
+    print(Rational(numerator,denominator).denominator)
+
 end
 
 main()
