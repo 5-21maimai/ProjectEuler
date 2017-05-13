@@ -7,4 +7,14 @@ def checkFactorial(num)
     return sum
 end
 
-print(checkFactorial(4688))
+def main()
+    answer = 0
+    (1..99999).each do |num|
+        if checkFactorial(num) == num then
+	    answer = answer + num
+	end
+    end
+    print(answer - 3)    
+end
+
+main()
