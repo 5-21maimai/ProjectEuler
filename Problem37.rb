@@ -1,5 +1,8 @@
 def checkPrime(stringNum)
     num = stringNum.to_i
+    if num == 1
+        return false
+    end
     (2..num/2).each do |i|
         if num % i == 0
 	    return false
@@ -8,7 +11,7 @@ def checkPrime(stringNum)
     return true
 end
 
-def calcSlice(num)
+def calcLeftSlice(num)
     snum = num.to_s
     while snum != ""
     	if checkPrime(snum) == false
@@ -19,13 +22,29 @@ def calcSlice(num)
     return true
 end
 
+def calcRightSlice(num)
+    snum = num.to_s
+    while snum != ""
+        if checkPrime(snum) == false
+	    return false
+	end
+	snum.slice!(snum.length - 1)
+    end
+    return true
+end
+
 
 def main()
     sum = 0
-    (8..100).each do |num|
-	if calcSlice(num) == true
-	    sum = sum + num
+    (8..100000).each do |num|
+	if calcLeftSlice(num) == false
+	    next
 	end
+	if calcRightSlice(num) == false
+	    next
+	end
+	print(num,"\n")
+	sum = sum + num
     end
     print(sum)
 
