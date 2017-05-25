@@ -13,8 +13,7 @@ end
 
 def calcLeftSlice(num)
     snum = num.to_s
-    if snum[snum.length-1, 1] != 3 || snum[snum.length-1, 1] != 7
-        print(snum[snum.length-1,1],"\n")
+    if snum[snum.length-1, 1] != "3" && snum[snum.length-1, 1] != "7"
         return false
     end
 
@@ -29,9 +28,8 @@ end
 
 def calcRightSlice(num)
     snum = num.to_s
-    print(snum[0,1],"\n")
-    if snum[0, 1] == 1 || snum[0, 1] == 4 || snum[0, 1] == 6 || snum[0, 1] == 8 || snum[0, 1] == 9
-        return false
+    if snum[0, 1] == "1" || snum[0, 1] == "4" || snum[0, 1] == "6" || snum[0, 1] == "8" || snum[0, 1] == "9"
+	return false
     end
 
     while snum != ""
@@ -46,7 +44,7 @@ end
 
 def main()
     sum = 0
-    (8..100000).each do |num|
+    (8..1000000).each do |num|
 	if calcLeftSlice(num) == false
 	    next
 	end
