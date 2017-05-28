@@ -11,6 +11,16 @@ def calcMul(target)
     return answer
 end
 
+def createPandigital()
+    panList = []
+    (1..9).permutation(9){ |a|
+        panDigital = a.join
+	panList << panDigital
+    end
+    return panList
+
+end
+
 
 
 def main()
