@@ -13,10 +13,10 @@ end
 
 def createPandigital()
     panList = []
-    (1..9).permutation(9){ |a|
+    (1..9).to_a.permutation(9){ |a|
         panDigital = a.join
 	panList << panDigital
-    end
+    }
     return panList
 
 end
@@ -24,8 +24,18 @@ end
 
 
 def main()
+    panList = createPandigital()
     (1..9999).each do |target|
-        print(calcMul(target),"\n")
+        answer = calcMul(target)
+	print(answer.length,"\n")
+	if answer.length != 9
+	    next
+	end
+	print(answer,"\n")
+
+        if panList.include?(answer) then
+	    print(answer,"\n")
+	end
     end
 
 end
