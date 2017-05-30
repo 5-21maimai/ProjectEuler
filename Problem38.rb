@@ -1,11 +1,10 @@
 def calcMul(target)
-    digit = 0
     num = 1
     answer = ""
-    while digit < 10
+    while true
     	mul = target * num
 	answer = answer + mul.to_s
-	digit = answer.length
+	break if answer.length >= 9
 	num = num + 1
     end
     return answer
@@ -18,25 +17,25 @@ def createPandigital()
 	panList << panDigital
     }
     return panList
-
 end
 
 
 
 def main()
     panList = createPandigital()
+    maxPanDigital = 0
     (1..9999).each do |target|
         answer = calcMul(target)
-	print(answer.length,"\n")
-	if answer.length != 9
+	answerInt = answer.to_i
+	if answer.length != 9 || answerInt <= maxPanDigital
 	    next
 	end
-	print(answer,"\n")
 
-        if panList.include?(answer) then
-	    print(answer,"\n")
+        if panList.include?(answer) && maxPanDigital < answer.to_i then
+	    maxPanDigital = answer.to_i
 	end
     end
+    print(maxPanDigital,"\n")
 
 end
 
