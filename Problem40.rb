@@ -7,9 +7,17 @@ def createNumString()
 	    break
 	end
     end
-    print(numString,"\n")
+    return numString
+
+end
+
+def main()
+    numString = createNumString()
+    mul = numString[0].to_i * numString[9].to_i * numString[99].to_i * numString[999].to_i * numString[9999].to_i * numString[99999].to_i * numString[999999].to_i
+
+    print(mul, "\n")
 
 end
 
 
-createNumString()
+main()
