@@ -1,5 +1,4 @@
 def main()
-    panList = []
     answer = 0
     7.downto(1).to_a.permutation(7) do |arr|
         panNum = arr.join.to_i
