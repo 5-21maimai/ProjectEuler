@@ -12,20 +12,12 @@ end
 
 def getSankaku()
     sankakuList = []
-
-    return sankakuList
-end
-
-
-def main()
-    dataList = getData()
-    sankakuList = getSankaku()
-    count = 0
-    dataList.each do |str|
-        score = countLetter(str)
-	count = count + 1 if sankakuList.include?(score)
+    i = 1
+    while i < 20
+        sankakuList << i * (i+1) / 2
+	i = i + 1
     end
-    print(count)
+    return sankakuList
 end
 
 
@@ -36,6 +28,17 @@ def countLetter(str)
     return score
 end
 
+
+def main()
+    dataList = getData()
+    sankakuList = getSankaku()
+    count = 0
+    dataList.each do |str|
+        score = countLetter(str)
+        count = count + 1 if sankakuList.include?(score)
+    end
+    print(count)
+end
 
 
 main()
