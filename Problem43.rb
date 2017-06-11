@@ -13,6 +13,26 @@ def checkDiv(strNum)
     if strNum[2,3].to_i % 3 != 0
         return false
     end
+    
+    if strNum[3,3].to_i % 5 != 0
+        return false
+    end
+
+    if strNum[4,3].to_i % 7 != 0
+        return false
+    end
+
+    if strNum[5,3].to_i % 11 != 0
+        return false
+    end
+
+    if strNum[6,3].to_i % 13 != 0
+        return false
+    end
+
+    if strNum[7,3].to_i % 17 != 0
+        return false
+    end
 
     return true
 end
@@ -24,13 +44,11 @@ def main()
     panList.each do |strNum|
         if checkDiv(strNum)
 	    print(strNum,"\n")
-	    count = count + 1
+	    count = count + strNum.to_i
 	end
     end
     print(count)
 
 end
-
-
 
 main()
