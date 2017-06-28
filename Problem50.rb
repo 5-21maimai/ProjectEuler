@@ -1,17 +1,20 @@
 require 'prime'
 
 def main()
+    provisionalSum = 0
     sum = 0
-    Prime.each(100) do |prime|
-        provisionalSum = sum + prime
-	if provisionalSum.prime? == false
+    Prime.each(1000000).to_a.each do |prime|
+        provisionalSum = provisionalSum + prime
+
+	if provisionalSum.prime?
 	    sum = provisionalSum
+	    print(sum,"\n")
 	    next
 	end
-
-	break if provisionalSum >= 100
 	
-	sum = provisionalSum
+	#print(provisionalSum,"\n")
+	break if provisionalSum >= 1000000
+	
     end
 
     print(sum)
